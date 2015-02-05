@@ -42,7 +42,7 @@ do
   | sed -e '/^\/\* Begin PBXSourcesBuildPhase section \*\//,/\/\* End PBXSourcesBuildPhase section \*\/$/!d' \
   -e "/$SOURCE_ID/,/\};/!d" -e "/files/,/);/!d" \
   | sed -e "2,\$!d" -e '$d' -e 's/[0-9A-Z]\{24\} \/\* //g' -e 's/ in Sources \*\/,//g' -e 's/^.\{4\}//g' | sort > "${name}_Compile_Sources.txt"
-  echo "-->${name}_Compile_Sources.txt"
+  echo "--> ${name}_Compile_Sources.txt"
 done
 
 #PBXNativeTarget sectionの取得
